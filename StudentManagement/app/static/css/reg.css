@@ -1,0 +1,38 @@
+.wrapper{
+    margin-top:20px;
+    width: 700px;
+    border-radius: 40px;
+    background-color : azure;
+    
+}
+input{
+    width: 180px;
+    text-align: center;
+    border-radius: 10px;
+    height: 30px;
+}
+table{
+  padding-left: 80px;
+}
+td{
+  padding-top: 1px;
+  padding-left: 5px;
+}
+.gender{
+  width: 30px;
+  font-style: bold;
+}
+.regwrapper .submit{
+    background-color:darkviolet;
+    height: 35px;
+    color: white;
+    border-radius: 15px;
+    width: 150px;
+    align-self: center;
+}
+.regwrapper h4{
+  color: black;
+}
+h3{
+  font-family: cursive
+}

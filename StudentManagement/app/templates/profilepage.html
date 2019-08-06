@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ProfilePage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dropdown.css')}}">
+<div class="header">
+	<h4 align="right">{{username}}</h4>
+  	<center><h1>Student Profile Management System</h1></center>
+</div>
+
+<div class="row">
+  <div class="col-2 col-s-3 menu">
+    <ul>
+      <a href="{{url_for('index')}}"><li>Home</li></a>
+      <li>About</li>
+      <li>Contact Us</li>
+      <a href="{{url_for('logout')}}"><li>Logout</li></a>
+    </ul>
+  </div>
+
+  <div class="col-7 col-s-9">
+    <center>
+      <h2>Department Of Computer Engineering</h2>
+      
+      <p>Welcome, Here you can see your profile and you can update it also. </p>
+      <p style="color: red">You can update only mobile number and address.</p>
+      <div class="show-info">
+        <table>
+          <tr>
+            <th>
+            <div class="dropdown">
+              <button class="dropbtn">View Profile</button>
+                <div class="dropdown-content">
+                  <a href="{{url_for('searchpersonalprofile')}}">Personal Details</a>
+                  <a href="{{url_for('searchacademicprofile')}}">Academic Details</a>
+                  <a href="{{url_for('searchcertificatesprofile')}}">Certifications</a>
+                </div>
+            </div>
+        </th>
+        <th>
+            <th>
+                <div class="dropdown">
+                  <button class="dropbtn">Update Profile</button>
+                  <div class="dropdown-content">
+                    <a href="{{url_for('updatepersonalpage')}}">Personal Details</a>
+                    <a href="{{url_for('updateacademicpage')}}">Academic Details</a>
+                    <a href="{{url_for('updatecertificatepage')}}">Certifications</a>
+                  </div>
+                </div>
+            </th>
+        </th>
+        </tr>
+        </table>
+      </div>
+    
+    <div class="show-profile">
+        <h3>Update Personal</h3>
+        <form action="{{url_for('updatepersonal')}}" method='POST'>
+            <select name="updateinfo" class="sel">
+                <option value="Mobile" onclick="myfun()">Mobile</option>
+                <option value="Address" onclick="myfun2()">Address</option>
+            </select><br><br>
+            <input type="text" name="updatetxt" id="uptext" placeholder="insert text" onkeyup="this.value = this.value.toUpperCase();"><br><br>
+            <input type="submit" name="submit" value="update" class="submit">
+        </form>
+    </div>
+  </center>
+  </div>
+
+  <div class="col-3 col-s-12">
+    <div class="aside">
+      <h2>How?</h2>
+      <p>You can reach Chania airport from all over Europe.</p>
+      <h2>When?</h2>
+      <p>Every sunday at 9 pm.</p>
+      <h2>How?</h2>
+      <p>You can reach Chania airport from all over Europe.</p>
+      <h2>When?</h2>
+      <p>Every sunday at 9 pm.</p>
+      <br>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>All the rights are reserved for departmen of computer engineering.</p>
+</div>
+
+
+<style>
+.tabhead{
+  width: 100px;
+}
+input{
+    text-align: center;
+    font-style: inherit;
+    font-size: 16px;
+    width: 220px;
+    height: 40px;
+    border-radius: 10px;
+    
+}   
+.submit{
+    background-color:darkviolet;
+    height: 35px;
+    color: white;
+    border-radius: 15px;
+    width: 120px;
+}
+.sel{
+    width: 100px;
+    height: 30px;
+}
+</style>
+<script type="text/javascript">
+  function myfun(){
+    document.getElementById('uptext').placeholder="Enter Mobile Number";
+  }
+  function myfun2(){
+    document.getElementById('uptext').placeholder="Enter Address";
+  }
+</script>
+</body>
+</html>

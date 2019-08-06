@@ -1,0 +1,130 @@
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reg.css')}}">
+<div class="header">
+	  <h4 align="right">{{username}}</h4>
+  	<center><h1>Department Library Management System</h1></center>
+
+</div>
+
+<div class="row">
+  <div class="col-2 col-s-3 menu">
+    <ul>
+        <a href="{{url_for('index')}}"><li>Home</li></a>
+        <li>About</li>
+        <li>Contact Us</li>
+    </ul>
+  </div>
+
+  <div class="col-7 col-s-9">
+    
+    <center>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <p>{{ messages }}</p>
+            {% endif %}
+        {% endwith %}
+    </center>
+    <div class="wrapper">
+        <div class="regwrapper">
+            <form action="{{url_for('registration')}}" method="POST">
+              <table>
+                <tr>
+                  <td><h4>Name</h4></td>
+                  <td><input type="text" name="fullname" placeholder="first+middle+last" required onkeyup="this.value = this.value.toUpperCase();"></td>
+                  <td><h4>Birth Date</h4></td>
+                  <td><input type="Date" name="birthdate" placeholder="Date Of Birth" required></td>
+                </tr>
+                <tr>
+                  <td><h4>Email</h4></td>
+                  <td><input type="email" name="email" placeholder="Email" required></td>
+                  <td><h4>Mobile</h4></td>
+                  <td><input type="tel" name="mobile" placeholder="Mobile" pattern="[0-9]{10}" required ></td>
+                </tr>
+                <tr>
+                  <td><h4>Gender</h4></td>
+                  <td><input type="radio" name="gender" value="MALE" class="gender" checked>Male
+                      <input type="radio" name="gender" value="FEMALE" class="gender">Female</td>
+                  <td><h4>PRN No.</h4></td>
+                  <td><input type="text" name="prn" placeholder="PRN No." required ></td>
+                </tr>
+                <tr>
+                <td>
+                  <h4>Last Edu.</h4></td>
+                  <td><input type="radio" name="lastedu" value="FE" class="gender" checked>FE
+                      <input type="radio" name="lastedu" value="DEPLOMA" class="gender">Deploma</td>
+                  <td><h4>Marks</h4></td>
+                  <td><input type="text" name="marks" placeholder="CGPA or PERCENTAGE" required></td>
+                </tr>
+                <tr>
+                    <td><h4>Address</h4></td>
+                    <td><textarea rows="2" name="address" onkeyup="this.value = this.value.toUpperCase();">click here</textarea></td>
+                    <td><h4>Current Year</h4></td>
+                    <td><select name="currentyear" class="sel">
+                        <option value="Second Year">Second Year</option>
+                        <option value="Third Year">Third Year</option>
+                        <option value="Final Year">Final Year</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><h4>Password</h4></td>
+                    <td><input type="password" name="password1" placeholder="Enter Password" id="password1" required></td>
+                    <td><h4>Repassword</h4></td>
+                    <td><input type="password" name="password2" placeholder="Confirm Password" id="password2" required></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="2"><center><input type="submit" name="submit" value="Register" class="submit" onclick="return Validate()"></center></td>
+                  <td></td>
+                </tr>
+              </table>
+          </form>
+          </div>
+        </div>
+  </div>
+
+  <div class="col-3 col-s-12">
+    <div class="aside">
+      <h2>What?</h2>
+      <p>Chania is a city on the island of Crete.</p>
+      <h2>Where?</h2>
+      <p>Crete is a Greek island in the Mediterranean Sea.</p>
+      <h2>How?</h2>
+      <p>You can reach Chania airport from all over Europe.</p>
+      <h2>When?</h2>
+      <p>Every sunday at 9 pm.</p>
+      <br>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>All the rights are reserved for departmen of computer engineering.</p>
+</div>
+
+<style>
+.sel{
+    width: 140px;
+    height: 30px;
+}
+</style>
+
+<script type="text/javascript">
+  function Validate() {
+     var password = document.getElementById("password1").value;
+     var confirmPassword = document.getElementById("password2").value;
+     if (password != confirmPassword){
+        alert("Both Password Should Be Same"); 
+        return false; 
+        } 
+      return true; 
+    }
+</script>
+</body>
+</html>

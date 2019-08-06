@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+<div class="header">
+	<h4 align="right">{{username}}</h4>
+  	<center><h1>Department Library Management System</h1></center>
+
+</div>
+
+<div class="row">
+  <div class="col-2 col-s-3 menu">
+    <ul>
+      <li>Search Book</li>
+      <li>Issue Book</li>
+      <li>Return Book</li>
+      <li>My Books</li>
+      <li>My Profile</li>
+    </ul>
+  </div>
+
+  <div class="col-7 col-s-9">
+    <h2>Department Of Computer Engineering</h2>
+    <center>
+    <div class="show-info">
+        <form method="POST" action="http://localhost:5000/searchbook">
+            <input type="text" name="searchbox" placeholder="Enter ISBN"><br><br>
+            <input type="submit" value="Search" class="submit">
+        </form>
+    </div>
+    <br>
+
+    <div class="col-12">
+        <table border="2">
+                <tr>
+                    <th>Name</th>
+                    <th>ISBN No.</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                    <th>Issue</th>
+                </tr>
+            {% for q in books %}
+                <tr>
+                    <td class="name">{{q['Name']}}</td>
+                    <td class="name">{{q['ISBN']}}</td>
+                    <td class="Author">{{q['Author']}}</td>
+                    <td class="name">{{q['Price']}}</td>
+                    <td><input type="submit" value="Borrow" class="borrowbook"></td>
+                </tr>
+            {% endfor %}
+        </table>
+    
+    </div>
+
+    </center>
+    <h3>{{ message }} </h3>
+  </div>
+
+  <div class="col-3 col-s-12">
+    <div class="aside">
+      <h2>What?</h2>
+      <p>Chania is a city on the island of Crete.</p>
+      <h2>Where?</h2>
+      <p>Crete is a Greek island in the Mediterranean Sea.</p>
+      <h2>How?</h2>
+      <p>You can reach Chania airport from all over Europe.</p>
+      <h2>When?</h2>
+      <p>Every sunday at 9 pm.</p>
+      <br>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>All the rights are reserved for departmen of computer engineering.</p>
+</div>
+
+<style>
+.show-info{
+    width: auto;
+}
+input{
+    text-align: center;
+    font-style: inherit;
+    font-size: 16px;
+    width: 220px;
+    height: 30px;
+    border-radius: 10px;
+    border: 10px;
+}   
+.submit{
+    background-color:darkviolet;
+    height: 35px;
+    color: white;
+    border-radius: 15px;
+    width: 180px;
+}
+.borrowbook{
+    width: 100px;
+    background-color:  green;
+    color:white;
+}
+</style>
+</body>
+</html>

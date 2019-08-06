@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Index Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+<div class="header">
+	<h4 align="right">{{username}}</h4>
+  	<center><h1>Student Profile Management System</h1></center>
+
+</div>
+
+<div class="row">
+  <div class="col-2 col-s-3 menu">
+    <ul>
+      <a href="{{url_for('index')}}"><li>Home</li></a>
+      <a href="{{url_for('profilehomepage')}}"><li>Profile</li></a>
+      <li>About</li>
+      <li>Contact Us</li>
+      {% if username %}
+      <a href="{{url_for('studentlogout')}}"><li>Logout</li></a>
+      {%endif%}
+    </ul>
+  </div>
+
+  <div class="col-7 col-s-9">
+    <center><h2>Department Of Computer Engineering</h2>
+      <p class='mainhead'>This is the Student Profile Management System of Department of Computer Engineering.
+        The purpose of this system is to store and update students information to future campus placement purpose.
+      You have to first registration for this system and then update your details like personal, academics, other 
+    activities,special achievements.</p>
+    <div class="wrapper">
+        <a href="{{url_for('adminloginpage')}}"><button>Admin Login</button></a><br><br>
+        <a href="{{url_for('loginpage')}}"><button>Student Login</button></a><br><br>
+        <a href="{{url_for('registration')}}"><button>click for student registration</button></a>
+    </div>
+    </center>
+  </div>
+
+  <div class="col-3 col-s-12">
+    <div class="aside">
+      <h2>About Department</h2>
+      <p>Department of Computer Engineering</p>
+      <h2>About Department</h2>
+      <p>Department of Computer Engineering</p>
+      <h2>About Department</h2>
+      <p>Department of Computer Engineering</p>
+      <h2>Purpose of This System</h2>
+      <p>This system is simply for manage all the data of students for training any placement purpose.</p>
+      <br>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>All the rights are reserved for departmen of computer engineering.</p>
+</div>
+
+
+<style>
+    .wrapper{
+        margin-top:50px;
+        width: 240px;
+        border-radius: 130px;
+        background-color :white; 
+      }
+      button{
+        height: 40px;
+        border-radius: 10px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 18px;
+        background-color:rgb(13, 28, 95);
+        color: white;
+        
+      }
+</style>
+</body>
+</html>

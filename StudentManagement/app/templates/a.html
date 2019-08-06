@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show all student</title>
+</head>
+<body>
+    <table border=1>
+    <tr>
+    {% for i in range(0,lent)%}
+        <th>{{z[i]}}</th>
+    {%endfor%}
+    </tr>
+    {% for i in range(0,lenx)%}
+    ( z=list(x[i].values()) )
+    <tr>
+        {% for j in range(0,len(z)%}
+        <td>{{z[j]}}</td>
+    </tr>
+    {%endfor%}
+    {%endfor%}
+    </table>
+</body>
+</html>
